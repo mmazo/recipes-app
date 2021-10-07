@@ -1,0 +1,16 @@
+.recipe-cards {
+  padding: 0.75rem;
+  display: flex;
+}
+
+.recipe-cards .card {
+  margin-right: 0.75rem;
+}
+
+.recipe-cards .card-footer {
+  text-align: right;
+}
+
+.recipe-cards .card-footer .btn {
+  margin-left: 0.75rem;
+}
