@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { RecipeService } from '../recipe.service';
 import { Recipe } from '../recipe';
+import { RECIPE_DETAILS_MODAL_ID } from '../recipe-details/recipe-details.component';
 
 @Component({
   selector: 'app-recipes-list',
@@ -8,12 +9,10 @@ import { Recipe } from '../recipe';
   styleUrls: ['./recipes-list.component.css']
 })
 export class RecipesListComponent implements OnInit {
-
   defaultRecipe: Recipe = {description: '', recipeId: -1, imageId: -1, name: ''};
-
   list: Array<Recipe> = [];
-
   selectedRecipe: Recipe = this.defaultRecipe;
+  detailsModalId: string = RECIPE_DETAILS_MODAL_ID;
 
   constructor(private recipes: RecipeService) { }
 
@@ -33,24 +32,6 @@ export class RecipesListComponent implements OnInit {
     })
   }
 
-  saveRecipe() {
-    if (this.selectedRecipe.recipeId >= 0) {
-      // save
-      this.recipes.updateOne(this.selectedRecipe).subscribe(() => {
-        this.getRecipes();
-      }, (error) => {
-        console.log(error);
-      });
-    } else {
-      // create
-      this.recipes.createOne(this.selectedRecipe).subscribe(() => {
-        this.getRecipes();
-      }, (error) => {
-        console.log(error);
-      });
-    }
-  }
-
   deleteRecipe(recipeId: number) {
     this.recipes.deleteOne(recipeId).subscribe(() => {
       this.getRecipes();
@@ -59,9 +40,4 @@ export class RecipesListComponent implements OnInit {
       console.log(error);
     });
   }
-
-  setRecipePicture(imageId: number) {
-    this.selectedRecipe.imageId = imageId;
-  }
-
 }

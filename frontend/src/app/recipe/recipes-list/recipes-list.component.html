@@ -6,7 +6,7 @@
         <button type="button"
                 class="btn btn-primary"
                 data-bs-toggle="modal"
-                data-bs-target="#recipeModal" (click)="select(defaultRecipe)">Add New Recipe</button>
+                [attr.data-bs-target]="'#' + detailsModalId" (click)="select(defaultRecipe)">Add New Recipe</button>
       </li>
     </ul>
   </div>
@@ -22,49 +22,11 @@
       <button type="button"
               class="btn btn-primary"
               data-bs-toggle="modal"
-              data-bs-target="#recipeModal"
+              [attr.data-bs-target]="'#' + detailsModalId"
               (click)="select(recipe)">Edit</button>
       <button type="button" class="btn btn-danger" (click)="deleteRecipe(recipe.recipeId)">Delete</button>
     </div>
   </div>
 </div>
 
-<!-- Recipe details modal used for edit and add -->
-<div class="modal fade" id="recipeModal" tabindex="-1" aria-labelledby="recipeModal" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Recipe</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <form>
-          <div class="form-group">
-            <label for="name">Image:</label>
-            <div class="row">
-              <div class="col-6">
-                <app-image-uploader (uploadedImageId)="setRecipePicture($event)"></app-image-uploader>
-              </div>
-              <div class="col-6">
-                <app-image-display [id]="selectedRecipe.imageId" [cssClass]="'card-img'"></app-image-display>
-              </div>
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="name">Title:</label>
-            <input id="name" name="name" class="form-control" [(ngModel)]="selectedRecipe.name">
-          </div>
-          <div class="form-group">
-            <label for="surname">Description:</label>
-            <input id="surname" name="surname" class="form-control" [(ngModel)]="selectedRecipe.description">
-          </div>
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-        <button type="button" class="btn btn-primary" (click)="saveRecipe()" data-bs-dismiss="modal">Save</button>
-      </div>
-    </div>
-  </div>
-</div>
-<!-- Recipe details modal used for edit and add -->
+<app-recipe-details [recipe]="selectedRecipe" (onSave)="getRecipes()"></app-recipe-details>
