@@ -5,6 +5,7 @@ import { RecipesListComponent } from './recipes-list/recipes-list.component';
 import { ImageModule } from '../image/image.module';
 import { FormsModule } from '@angular/forms';
 import { RecipeDetailsComponent } from './recipe-details/recipe-details.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -15,6 +16,7 @@ import { RecipeDetailsComponent } from './recipe-details/recipe-details.componen
   ],
     imports: [
         CommonModule,
+        HttpClientModule,
         ImageModule,
         FormsModule
     ],

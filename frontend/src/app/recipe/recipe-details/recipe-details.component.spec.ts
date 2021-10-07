@@ -1,6 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { RecipeDetailsComponent } from './recipe-details.component';
+import { RecipeService } from '../recipe.service';
+
+class MockRecipeService {}
 
 describe('RecipeDetailsComponent', () => {
   let component: RecipeDetailsComponent;
@@ -8,7 +11,8 @@ describe('RecipeDetailsComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ RecipeDetailsComponent ]
+      declarations: [ RecipeDetailsComponent ],
+      providers: [ {provide: RecipeService, useClass: MockRecipeService} ]
     })
     .compileComponents();
   });

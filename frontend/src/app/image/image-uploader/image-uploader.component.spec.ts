@@ -1,6 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ImageUploaderComponent } from './image-uploader.component';
+import { ImageService } from '../image.service';
+
+class MockImageService {}
 
 describe('ImageUploaderComponent', () => {
   let component: ImageUploaderComponent;
@@ -8,6 +11,7 @@ describe('ImageUploaderComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      providers: [{provide: ImageService, useClass: MockImageService}],
       declarations: [ ImageUploaderComponent ]
     })
     .compileComponents();
