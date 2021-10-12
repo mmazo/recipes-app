@@ -5,16 +5,9 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>de.mmazo</groupId>
-    <artifactId>recipes-app</artifactId>
+    <artifactId>frontend-react</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>recipes-app</name>
-    <description>Manage your recipes</description>
+    <name>frontend-react</name>
+    <description>Recipes app frontend with react</description>
 
-    <packaging>pom</packaging>
-
-    <modules>
-        <module>frontend</module>
-        <module>frontend-react</module>
-        <module>backend</module>
-    </modules>
 </project>
