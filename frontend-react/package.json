@@ -24,7 +24,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "grc": "npx generate-react-cli component"
+    "grc": "generate-react.cmd component --type=default",
+    "grp": "generate-react.cmd component --type=page"
   },
   "eslintConfig": {
     "extends": [
@@ -43,5 +44,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "generate-react-cli": "^7.0.4"
   }
 }
