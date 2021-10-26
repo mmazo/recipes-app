@@ -6,17 +6,17 @@ const routes: Routes = [
   {
     path: '',
     redirectTo: '/recipes',
-    pathMatch: 'full'
+    pathMatch: 'full',
   },
   {
     path: 'recipes',
     component: RecipesListComponent,
-    children: []
+    children: [],
   },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

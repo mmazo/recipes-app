@@ -11,10 +11,9 @@ describe('RecipeDetailsComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ RecipeDetailsComponent ],
-      providers: [ {provide: RecipeService, useClass: MockRecipeService} ]
-    })
-    .compileComponents();
+      declarations: [RecipeDetailsComponent],
+      providers: [{ provide: RecipeService, useClass: MockRecipeService }],
+    }).compileComponents();
   });
 
   beforeEach(() => {

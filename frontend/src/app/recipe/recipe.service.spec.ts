@@ -10,7 +10,7 @@ describe('RecipeService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [HttpClientTestingModule],
-      providers: [RecipeService]
+      providers: [RecipeService],
     });
     httpClient = TestBed.inject(HttpClient);
   });

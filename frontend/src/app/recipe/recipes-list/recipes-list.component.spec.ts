@@ -5,15 +5,17 @@ import { RecipeService } from '../recipe.service';
 import { of } from 'rxjs';
 import { Recipe } from '../recipe';
 
-const mockedRecipesList: Array<Recipe> = [{
-  recipeId: 1,
-  name: 'Pizza',
-  description: 'Mega Pizza',
-  imageId: 23
-}];
+const mockedRecipesList: Array<Recipe> = [
+  {
+    recipeId: 1,
+    name: 'Pizza',
+    description: 'Mega Pizza',
+    imageId: 23,
+  },
+];
 
 class MockRecipeService {
-  getList(){
+  getList() {
     return of(mockedRecipesList);
   }
 }
@@ -24,10 +26,9 @@ describe('RecipesListComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      providers: [{provide: RecipeService, useClass: MockRecipeService}],
-      declarations: [ RecipesListComponent ]
-    })
-    .compileComponents();
+      providers: [{ provide: RecipeService, useClass: MockRecipeService }],
+      declarations: [RecipesListComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {
@@ -42,7 +43,11 @@ describe('RecipesListComponent', () => {
 
   it('should render title', () => {
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.card-title')?.textContent).toContain(mockedRecipesList[0].name);
-    expect(compiled.querySelector('.card-text')?.textContent).toContain(mockedRecipesList[0].description);
+    expect(compiled.querySelector('.card-title')?.textContent).toContain(
+      mockedRecipesList[0].name
+    );
+    expect(compiled.querySelector('.card-text')?.textContent).toContain(
+      mockedRecipesList[0].description
+    );
   });
 });

@@ -3,30 +3,51 @@
     <span class="navbar-brand mb-0 h1">Recipes</span>
     <ul class="nav navbar-nav navbar-right">
       <li>
-        <button type="button"
-                class="btn btn-primary"
-                data-bs-toggle="modal"
-                [attr.data-bs-target]="'#' + detailsModalId" (click)="select(defaultRecipe)">Add New Recipe</button>
+        <button
+          type="button"
+          class="btn btn-primary"
+          data-bs-toggle="modal"
+          [attr.data-bs-target]="'#' + detailsModalId"
+          (click)="select(defaultRecipe)"
+        >
+          Add New Recipe
+        </button>
       </li>
     </ul>
   </div>
 </nav>
 <div class="recipe-cards">
-  <div *ngFor="let recipe of list" class="card" style="width: 18rem;">
-    <app-image-display [id]="recipe.imageId" [cssClass]="'card-img-top'" ></app-image-display>
+  <div *ngFor="let recipe of list" class="card" style="width: 18rem">
+    <app-image-display
+      [id]="recipe.imageId"
+      [cssClass]="'card-img-top'"
+    ></app-image-display>
     <div class="card-body">
-      <h5 class="card-title">{{recipe.name}}</h5>
-      <p class="card-text">{{recipe.description}}</p>
+      <h5 class="card-title">{{ recipe.name }}</h5>
+      <p class="card-text">{{ recipe.description }}</p>
     </div>
     <div class="card-footer">
-      <button type="button"
-              class="btn btn-primary"
-              data-bs-toggle="modal"
-              [attr.data-bs-target]="'#' + detailsModalId"
-              (click)="select(recipe)">Edit</button>
-      <button type="button" class="btn btn-danger" (click)="deleteRecipe(recipe.recipeId)">Delete</button>
+      <button
+        type="button"
+        class="btn btn-primary"
+        data-bs-toggle="modal"
+        [attr.data-bs-target]="'#' + detailsModalId"
+        (click)="select(recipe)"
+      >
+        Edit
+      </button>
+      <button
+        type="button"
+        class="btn btn-danger"
+        (click)="deleteRecipe(recipe.recipeId)"
+      >
+        Delete
+      </button>
     </div>
   </div>
 </div>
 
-<app-recipe-details [recipe]="selectedRecipe" (onSave)="getRecipes()"></app-recipe-details>
+<app-recipe-details
+  [recipe]="selectedRecipe"
+  (onSave)="getRecipes()"
+></app-recipe-details>

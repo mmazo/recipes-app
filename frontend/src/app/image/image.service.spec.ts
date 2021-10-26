@@ -10,7 +10,7 @@ describe('ImageService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [HttpClientTestingModule],
-      providers: [ImageService]
+      providers: [ImageService],
     });
     httpClient = TestBed.inject(HttpClient);
   });

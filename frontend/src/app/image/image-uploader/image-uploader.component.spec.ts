@@ -11,10 +11,9 @@ describe('ImageUploaderComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      providers: [{provide: ImageService, useClass: MockImageService}],
-      declarations: [ ImageUploaderComponent ]
-    })
-    .compileComponents();
+      providers: [{ provide: ImageService, useClass: MockImageService }],
+      declarations: [ImageUploaderComponent],
+    }).compileComponents();
   }));
 
   beforeEach(() => {

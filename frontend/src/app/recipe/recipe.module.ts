@@ -7,20 +7,10 @@ import { FormsModule } from '@angular/forms';
 import { RecipeDetailsComponent } from './recipe-details/recipe-details.component';
 import { HttpClientModule } from '@angular/common/http';
 
-
-
 @NgModule({
-  declarations: [
-    RecipesListComponent,
-    RecipeDetailsComponent
-  ],
-    imports: [
-        CommonModule,
-        HttpClientModule,
-        ImageModule,
-        FormsModule
-    ],
+  declarations: [RecipesListComponent, RecipeDetailsComponent],
+  imports: [CommonModule, HttpClientModule, ImageModule, FormsModule],
   providers: [RecipeService],
-  exports: [RecipesListComponent]
+  exports: [RecipesListComponent],
 })
-export class RecipeModule { }
+export class RecipeModule {}

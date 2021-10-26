@@ -6735,6 +6735,11 @@ postcss@^8.2.15, postcss@^8.3.5:
     picocolors "^0.2.1"
     source-map-js "^0.6.2"
 
+prettier@^2.4.1:
+  version "2.4.1"
+  resolved "https://artifactory.boschdevcloud.com/artifactory/api/npm/iot-console-virtual/prettier/-/prettier-2.4.1.tgz#671e11c89c14a4cfc876ce564106c4a6726c9f5c"
+  integrity sha1-Zx4RyJwUpM/Ids5WQQbEpnJsn1w=
+
 pretty-bytes@^5.3.0, pretty-bytes@^5.6.0:
   version "5.6.0"
   resolved "https://artifactory.boschdevcloud.com/artifactory/api/npm/iot-console-virtual/pretty-bytes/-/pretty-bytes-5.6.0.tgz#356256f643804773c82f64723fe78c92c62beaeb"

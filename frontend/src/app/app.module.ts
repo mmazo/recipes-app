@@ -6,16 +6,9 @@ import { ImageModule } from './image/image.module';
 import { RecipeModule } from './recipe/recipe.module';
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    ImageModule,
-    RecipeModule
-  ],
+  declarations: [AppComponent],
+  imports: [BrowserModule, AppRoutingModule, ImageModule, RecipeModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
