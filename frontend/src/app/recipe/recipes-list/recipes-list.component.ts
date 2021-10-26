@@ -29,8 +29,8 @@ export class RecipesListComponent implements OnInit {
     this.selectedRecipe = recipe;
   }
 
-  getRecipes() {
-    this.recipes.getList().subscribe(
+  getRecipes(searchValue?: string) {
+    this.recipes.getList(searchValue).subscribe(
       (recipesList: Array<Recipe>) => {
         this.list = recipesList;
       },

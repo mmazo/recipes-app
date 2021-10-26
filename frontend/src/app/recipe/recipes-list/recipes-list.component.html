@@ -2,6 +2,9 @@
   <div class="container-fluid">
     <span class="navbar-brand mb-0 h1">Recipes</span>
     <ul class="nav navbar-nav navbar-right">
+      <li class="mx-2">
+        <app-recipe-search (onSearch)="getRecipes($event)"></app-recipe-search>
+      </li>
       <li>
         <button
           type="button"
