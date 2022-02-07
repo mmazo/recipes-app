@@ -4,10 +4,17 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ImageModule } from './image/image.module';
 import { RecipeModule } from './recipe/recipe.module';
+import { TagModule } from './tag/tag.module';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, AppRoutingModule, ImageModule, RecipeModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    ImageModule,
+    RecipeModule,
+    TagModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
