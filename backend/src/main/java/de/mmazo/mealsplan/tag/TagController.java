@@ -17,4 +17,9 @@ public class TagController {
         return tagRepository.findAll();
     }
 
+    @SchemaMapping(typeName = "Query",value = "findOneTag")
+    public Tag findOneTag(long id) {
+        return tagRepository.findById(id);
+    }
+
 }

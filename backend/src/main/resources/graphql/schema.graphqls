@@ -13,4 +13,5 @@ type Tag {
 
 type Query {
     allTags: [Tag]
+    findOneTag(id: ID!): Tag
 }
