@@ -6,12 +6,12 @@ import org.springframework.graphql.data.method.annotation.SchemaMapping;
 import org.springframework.stereotype.Controller;
 
 @Controller
-public class TagController {
+public class TagGraphQLController {
 
     private final TagRepository tagRepository;
 
     @Autowired
-    public TagController(TagRepository tagRepository){ this.tagRepository = tagRepository; }
+    public TagGraphQLController(TagRepository tagRepository){ this.tagRepository = tagRepository; }
 
     @SchemaMapping(typeName = "Query",value = "allTags")
     public Iterable<Tag> findAll() {

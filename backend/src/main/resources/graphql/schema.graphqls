@@ -3,6 +3,7 @@ type Recipe {
     name: String
     description: String
     imageId: Int
+    tags: [Tag]
 }
 
 type Tag {
@@ -15,4 +16,5 @@ type Tag {
 type Query {
     allTags: [Tag]
     findOneTag(id: ID!): Tag
+    allRecipes: [Recipe]
 }
