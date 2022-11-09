@@ -1,9 +1,13 @@
 package de.mmazo.mealsplan.tag;
 
+import de.mmazo.mealsplan.recipe.Recipe;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import java.util.Set;
 
 @Entity
 public class Tag {
@@ -12,6 +16,8 @@ public class Tag {
     private Long id;
     private String name;
     private String description;
+    @ManyToMany(mappedBy = "tags")
+    private Set<Recipe> recipes;
 
     public Long getId() {
         return id;
@@ -36,4 +42,6 @@ public class Tag {
     public void setDescription(String description) {
         this.description = description;
     }
+
+    public Set<Recipe> getRecipes() { return recipes; }
 }

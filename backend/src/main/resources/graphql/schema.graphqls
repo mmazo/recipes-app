@@ -9,6 +9,7 @@ type Tag {
     id: ID!
     name: String
     description: String
+    recipes: [Recipe]
 }
 
 type Query {
