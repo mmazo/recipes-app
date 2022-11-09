@@ -5,7 +5,10 @@ Manage your favourite recipes and learn full stack :)
 ## Tech Stack
 
 - H2 Database
-- Spring
+- Spring Boot
+- Spring Data JPA
+- Spring Data REST
+- Spring for GraphQL
 - Angular
 - Karma
 - Cypress
