@@ -1,6 +1,7 @@
 package de.mmazo.mealsplan.tag;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.graphql.data.method.annotation.Argument;
 import org.springframework.graphql.data.method.annotation.SchemaMapping;
 import org.springframework.stereotype.Controller;
 
@@ -18,7 +19,7 @@ public class TagController {
     }
 
     @SchemaMapping(typeName = "Query",value = "findOneTag")
-    public Tag findOneTag(long id) {
+    public Tag findOneTag(@Argument int id) {
         return tagRepository.findById(id);
     }
 
