@@ -1,0 +1,16 @@
+type Recipe {
+    id: ID!
+    name: String
+    description: String
+    imageId: Int
+}
+
+type Tag {
+    id: ID!
+    name: String
+    description: String
+}
+
+type Query {
+    allTags: [Tag]
+}
