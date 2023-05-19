@@ -5,9 +5,10 @@ import { AppComponent } from './app.component';
 import { ImageModule } from './image/image.module';
 import { RecipeModule } from './recipe/recipe.module';
 import { TagModule } from './tag/tag.module';
+import { NavigationComponent } from './navigation/navigation.component';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, NavigationComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
