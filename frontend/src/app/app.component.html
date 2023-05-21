@@ -1,4 +1,16 @@
-<app-navigation></app-navigation>
-<main>
-  <router-outlet></router-outlet>
-</main>
+<div class="recipes-app">
+  <header class="app-header">
+    <h1>
+      <a [routerLink]="['/']">Recipes App</a>
+    </h1>
+  </header>
+  <nav class="app-nav">
+    <app-navigation></app-navigation>
+  </nav>
+  <main class="app-main">
+    <router-outlet></router-outlet>
+  </main>
+  <footer class="app-footer">
+    Copyright © 2023 Michail Mazo
+  </footer>
+</div>

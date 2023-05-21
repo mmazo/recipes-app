@@ -1,0 +1,48 @@
+/*
+- dark brown: #7a4e4a
+- dark orange: #c1511e
+- orange: #de6e1d
+- light orange: #e28013
+- light caramel: #f9ca87
+*/
+
+.recipes-app {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 256px auto;
+  grid-template-rows: 64px auto 32px;
+  grid-template-areas: 'header header'
+                       'nav main'
+                       'footer footer';
+  grid-gap: 0;
+}
+
+.app-header {
+  background-color: #c1511e;
+  grid-area: header;
+  color: #fff;
+}
+
+.app-nav {
+  background-color: #7a4e4a;
+  grid-area: nav;
+  color: #fff;
+  overflow: hidden;
+  overflow-y: auto;
+}
+
+.app-main {
+  background-color: #f9ca87;
+  grid-area: main;
+  overflow: hidden;
+  overflow-y: auto;
+}
+
+.app-footer {
+  background-color: #de6e1d;
+  grid-area: footer;
+  color: #7a4e4a;
+  text-align: center;
+}
