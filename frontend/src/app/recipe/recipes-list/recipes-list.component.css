@@ -14,3 +14,7 @@
 .recipe-cards .card-footer .btn {
   margin-left: 0.75rem;
 }
+
+nav.navbar {
+  border-bottom: 1px solid #c1511e;
+}

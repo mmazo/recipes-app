@@ -1,2 +1,14 @@
-<p>tag-crud-list works!</p>
-<div *ngFor="let tag of list">{{tag.name}}{{tag.description}}</div>
+<table class="table">
+  <thead>
+  <tr>
+    <th scope="col">Name</th>
+    <th scope="col">Description</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let tag of list">
+    <td>{{tag.name}}</td>
+    <td>{{tag.description}}</td>
+  </tr>
+  </tbody>
+</table>
