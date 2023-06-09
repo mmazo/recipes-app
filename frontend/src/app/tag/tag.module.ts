@@ -2,8 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from "@angular/common/http";
 import { FormsModule } from "@angular/forms";
-import { TagService } from "./tag.service";
 import { TagCrudListComponent } from './tag-crud-list/tag-crud-list.component';
+import {CrudModule} from "../crud/crud.module";
 
 
 
@@ -11,10 +11,7 @@ import { TagCrudListComponent } from './tag-crud-list/tag-crud-list.component';
   declarations: [
     TagCrudListComponent
   ],
-  imports: [
-    CommonModule, HttpClientModule, FormsModule
-  ],
-  providers: [TagService],
+  imports: [ CrudModule.forRoot({apiBaseUrl: 'api/v1/tags', idAttributeName: 'tagId', listPathName: 'tags' }) ],
   exports: [TagCrudListComponent]
 })
 export class TagModule { }

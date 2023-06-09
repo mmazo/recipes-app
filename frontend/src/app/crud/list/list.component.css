@@ -1,0 +1,20 @@
+.list-cards {
+  padding: 0.75rem;
+  display: flex;
+}
+
+.list-cards .card {
+  margin-right: 0.75rem;
+}
+
+.list-cards .card-footer {
+  text-align: right;
+}
+
+.list-cards .card-footer .btn {
+  margin-left: 0.75rem;
+}
+
+nav.navbar {
+  border-bottom: 1px solid #c1511e;
+}
