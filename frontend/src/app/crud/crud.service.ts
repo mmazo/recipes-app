@@ -5,8 +5,8 @@ import { map } from 'rxjs/operators';
 import {CrudItem, CrudServiceConfig} from "./models";
 import {CrudServiceConfiguration} from "./crud-config.service";
 @Injectable()
-export class CrudService {
-  constructor(private http: HttpClient,  @Inject(CrudServiceConfiguration) private config: CrudServiceConfig) {}
+export abstract class CrudService {
+  protected constructor(private http: HttpClient, @Inject(CrudServiceConfiguration) private config: CrudServiceConfig) {}
 
   private mapToDTO(item: CrudItem): any {
     const dto: any = {...item};
