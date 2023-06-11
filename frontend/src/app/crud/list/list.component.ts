@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {ITEM_DETAILS_MODAL_ID} from "../details/details.component";
-import {CrudItem} from "../models";
+import {CrudItem, CrudLabels} from "../models";
 import {CrudService} from "../crud.service";
 
 @Component({
@@ -20,7 +20,11 @@ export class ListComponent implements OnInit {
   selectedItem: CrudItem = this.defaultItem;
   detailsModalId: string = ITEM_DETAILS_MODAL_ID;
 
-  constructor(private crudService: CrudService) {}
+  labels: CrudLabels;
+
+  constructor(private crudService: CrudService) {
+    this.labels = this.crudService.config.translations;
+  }
 
   ngOnInit(): void {
     this.getItems();

@@ -5,8 +5,17 @@ export interface CrudItem {
   imageId?: number;
 }
 
+export type CrudLabels = {
+  listHeader: string;
+  detailsHeader: string;
+  addActionLabel: string;
+  deleteActionLabel: string;
+}
+
 export type CrudServiceConfig = {
   apiBaseUrl: string;
   idAttributeName: string;
   listPathName: string;
+  withImage: boolean;
+  translations: CrudLabels;
 }

@@ -6,7 +6,7 @@ import {CrudItem, CrudServiceConfig} from "./models";
 import {CrudServiceConfiguration} from "./crud-config.service";
 @Injectable()
 export abstract class CrudService {
-  protected constructor(private http: HttpClient, @Inject(CrudServiceConfiguration) private config: CrudServiceConfig) {}
+  protected constructor(private http: HttpClient, @Inject(CrudServiceConfiguration) public config: CrudServiceConfig) {}
 
   private mapToDTO(item: CrudItem): any {
     const dto: any = {...item};

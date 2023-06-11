@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import {CrudItem} from "../models";
+import {CrudItem, CrudLabels} from "../models";
 import {CrudService} from "../crud.service";
 export const ITEM_DETAILS_MODAL_ID = 'crudItemModal';
 @Component({
@@ -22,9 +22,12 @@ export class DetailsComponent {
 
   modalId: string;
 
+  labels: CrudLabels;
+
   constructor(private crudService: CrudService) {
     this.item = this.defaultItem;
     this.modalId = ITEM_DETAILS_MODAL_ID;
+    this.labels = this.crudService.config.translations;
   }
 
   saveItem() {
