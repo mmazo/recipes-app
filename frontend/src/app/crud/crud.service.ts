@@ -4,9 +4,7 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import {CrudItem, CrudServiceConfig} from "./models";
 import {CrudServiceConfiguration} from "./crud-config.service";
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class CrudService {
   constructor(private http: HttpClient,  @Inject(CrudServiceConfiguration) private config: CrudServiceConfig) {}
 
