@@ -21,7 +21,7 @@
 </nav>
 <div class="list-cards">
   <div *ngFor="let item of list" class="card" style="width: 18rem">
-    <app-image-display
+    <app-image-display *ngIf="item.imageId && item.imageId !== -1"
       [id]="item.imageId"
       [cssClass]="'card-img-top'"
     ></app-image-display>
