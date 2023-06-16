@@ -16,6 +16,9 @@ public class Tag {
     private Long id;
     private String name;
     private String description;
+
+    private long imageId;
+
     @ManyToMany(mappedBy = "tags")
     private Set<Recipe> recipes;
 
@@ -44,4 +47,8 @@ public class Tag {
     }
 
     public Set<Recipe> getRecipes() { return recipes; }
+
+    public long getImageId() { return imageId; }
+
+    public void setImageId(long imageId) { this.imageId = imageId; }
 }

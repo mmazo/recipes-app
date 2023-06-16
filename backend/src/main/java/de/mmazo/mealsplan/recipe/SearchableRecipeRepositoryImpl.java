@@ -1,6 +1,5 @@
 package de.mmazo.mealsplan.recipe;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
@@ -12,8 +11,11 @@ import java.util.List;
 @Repository
 public class SearchableRecipeRepositoryImpl implements SearchableRecipeRepository {
 
-    @Autowired
-    private EntityManager entityManager;
+    private final EntityManager entityManager;
+
+    public SearchableRecipeRepositoryImpl(EntityManager entityManager) {
+        this.entityManager = entityManager;
+    }
 
     @Override
     public List<Recipe> searchByNameAndDescription(String value) {
