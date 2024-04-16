@@ -1,0 +1,20 @@
+type Recipe {
+    id: ID!
+    name: String
+    description: String
+    imageId: Int
+    tags: [Tag]
+}
+
+type Tag {
+    id: ID!
+    name: String
+    description: String
+    recipes: [Recipe]
+}
+
+type Query {
+    allTags: [Tag]
+    findOneTag(id: ID!): Tag
+    allRecipes: [Recipe]
+}

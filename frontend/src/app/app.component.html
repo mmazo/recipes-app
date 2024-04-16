@@ -1,0 +1,18 @@
+<div class="recipes-app">
+  <header class="app-header">
+    <h1>
+      <a [routerLink]="['/']">
+        <img src="assets/icons/icons8-ingredients-96.png" /> Recipes App
+      </a>
+    </h1>
+  </header>
+  <nav class="app-nav">
+    <app-navigation></app-navigation>
+  </nav>
+  <main class="app-main">
+    <router-outlet></router-outlet>
+  </main>
+  <footer class="app-footer">
+    Copyright © 2023 Michail Mazo
+  </footer>
+</div>
