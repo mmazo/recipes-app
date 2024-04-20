@@ -4,7 +4,7 @@ import { ImageUploaderComponent } from './image-uploader/image-uploader.componen
 import { ImageDisplayComponent } from './image-display/image-display.component';
 import { ImageService } from './image.service';
 import { HttpClientModule } from '@angular/common/http';
-import { FileUploadModule } from 'ng2-file-upload';
+import { FileUploadModule } from "@augwit/ng2-file-upload";
 
 @NgModule({
   imports: [CommonModule, HttpClientModule, FileUploadModule],

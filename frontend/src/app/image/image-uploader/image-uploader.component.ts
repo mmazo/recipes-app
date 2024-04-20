@@ -1,5 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { FileUploader } from 'ng2-file-upload';
+import { FileUploader } from '@augwit/ng2-file-upload';
 
 import { ImageService } from '../image.service';
 import { Image } from '../image';
@@ -7,7 +7,7 @@ import { Image } from '../image';
 @Component({
   selector: 'app-image-uploader',
   templateUrl: './image-uploader.component.html',
-  styleUrls: ['./image-uploader.component.css'],
+  styleUrls: ['./image-uploader.component.scss'],
 })
 export class ImageUploaderComponent implements OnInit {
   @Output()
