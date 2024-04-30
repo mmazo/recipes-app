@@ -4,7 +4,7 @@
   tabindex="-1"
   [attr.aria-labelledby]="modalId"
   aria-hidden="true"
->
+  >
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -18,22 +18,24 @@
       </div>
       <div class="modal-body">
         <form>
-          <div *ngIf="withImages" class="form-group">
-            <label for="name">Image:</label>
-            <div class="row">
-              <div class="col-6">
-                <app-image-uploader
-                  (uploadedImageId)="setItemPicture($event)"
-                ></app-image-uploader>
-              </div>
-              <div class="col-6">
-                <app-image-display
-                  [id]="item.imageId"
-                  [cssClass]="'card-img'"
-                ></app-image-display>
+          @if (withImages) {
+            <div class="form-group">
+              <label for="name">Image:</label>
+              <div class="row">
+                <div class="col-6">
+                  <app-image-uploader
+                    (uploadedImageId)="setItemPicture($event)"
+                  ></app-image-uploader>
+                </div>
+                <div class="col-6">
+                  <app-image-display
+                    [id]="item.imageId"
+                    [cssClass]="'card-img'"
+                  ></app-image-display>
+                </div>
               </div>
             </div>
-          </div>
+          }
           <div class="form-group">
             <label for="name">Title:</label>
             <input
@@ -41,7 +43,7 @@
               name="name"
               class="form-control"
               [(ngModel)]="item.name"
-            />
+              />
           </div>
           <div class="form-group">
             <label for="surname">Description:</label>
@@ -50,9 +52,11 @@
               name="surname"
               class="form-control"
               [(ngModel)]="item.description"
-            />
+              />
           </div>
-          <div *ngIf="withTags" class="form-group">MANAGE TAGS!!!</div>
+          @if (withTags) {
+            <div class="form-group">MANAGE TAGS!!!</div>
+          }
         </form>
       </div>
       <div class="modal-footer">
@@ -64,7 +68,7 @@
           class="btn btn-primary"
           (click)="saveItem()"
           data-bs-dismiss="modal"
-        >
+          >
           Save
         </button>
       </div>

@@ -1,1 +1,3 @@
-<img *ngIf="id !== -1" alt="" class="{{ cssClass }} image-display-icon" [src]="imageUrl()" />
+@if (id !== -1) {
+  <img alt="" class="{{ cssClass }} image-display-icon" [src]="imageUrl()" />
+}

@@ -12,7 +12,7 @@
           data-bs-toggle="modal"
           [attr.data-bs-target]="'#' + detailsModalId"
           (click)="select(defaultItem)"
-        >
+          >
           {{labels.addActionLabel}}
         </button>
       </li>
@@ -20,34 +20,38 @@
   </div>
 </nav>
 <div class="list-cards">
-  <div *ngFor="let item of list" class="card" style="width: 18rem">
-    <app-image-display *ngIf="item.imageId && item.imageId !== -1"
-      [id]="item.imageId"
-      [cssClass]="'card-img-top'"
-    ></app-image-display>
-    <div class="card-body">
-      <h5 class="card-title">{{ item.name }}</h5>
-      <p class="card-text">{{ item.description }}</p>
+  @for (item of list; track item) {
+    <div class="card" style="width: 18rem">
+      @if (item.imageId && item.imageId !== -1) {
+        <app-image-display
+          [id]="item.imageId"
+          [cssClass]="'card-img-top'"
+        ></app-image-display>
+      }
+      <div class="card-body">
+        <h5 class="card-title">{{ item.name }}</h5>
+        <p class="card-text">{{ item.description }}</p>
+      </div>
+      <div class="card-footer">
+        <button
+          type="button"
+          class="btn btn-primary"
+          data-bs-toggle="modal"
+          [attr.data-bs-target]="'#' + detailsModalId"
+          (click)="select(item)"
+          >
+          Edit
+        </button>
+        <button
+          type="button"
+          class="btn btn-danger"
+          (click)="deleteItem(item.id)"
+          >
+          {{labels.deleteActionLabel}}
+        </button>
+      </div>
     </div>
-    <div class="card-footer">
-      <button
-        type="button"
-        class="btn btn-primary"
-        data-bs-toggle="modal"
-        [attr.data-bs-target]="'#' + detailsModalId"
-        (click)="select(item)"
-      >
-        Edit
-      </button>
-      <button
-        type="button"
-        class="btn btn-danger"
-        (click)="deleteItem(item.id)"
-      >
-        {{labels.deleteActionLabel}}
-      </button>
-    </div>
-  </div>
+  }
 </div>
 
 <app-details
