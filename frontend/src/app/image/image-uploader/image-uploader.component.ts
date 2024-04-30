@@ -33,7 +33,7 @@ export class ImageUploaderComponent implements OnInit {
       item: any,
       response: any,
       status: any,
-      headers: any
+      headers: any,
     ) => {
       let resp: Image = JSON.parse(response) as Image;
       this.returnUploadedImageId(resp.id);
@@ -51,14 +51,14 @@ export class ImageUploaderComponent implements OnInit {
 
   private deleteOldImage(newImageId: number) {
     if (this.prevUploadedImageId !== null) {
-      this.imageService.deleteOne(this.prevUploadedImageId).subscribe(
-        () => {
+      this.imageService.deleteOne(this.prevUploadedImageId).subscribe({
+        next: () => {
           this.prevUploadedImageId = newImageId;
         },
-        (error) => {
+        error: (error) => {
           console.log(error);
-        }
-      );
+        },
+      });
     }
   }
 }
