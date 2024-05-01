@@ -6,7 +6,7 @@ import { CrudService } from '../crud.service';
 @Component({
   selector: 'app-list',
   templateUrl: './list.component.html',
-  styleUrls: ['./list.component.scss'],
+  styleUrl: './list.component.scss',
 })
 export class ListComponent implements OnInit {
   defaultItem: CrudItem = {
