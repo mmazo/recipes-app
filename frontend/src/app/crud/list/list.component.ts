@@ -1,12 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, signal, WritableSignal } from '@angular/core';
 import { ITEM_DETAILS_MODAL_ID } from '../details/details.component';
-import { CrudItem, CrudLabels } from '../models';
+import { CRUD_LABELS_DEFAULT, CrudItem, CrudLabels } from '../models';
 import { CrudService } from '../crud.service';
 
 @Component({
   selector: 'app-list',
   templateUrl: './list.component.html',
   styleUrl: './list.component.scss',
+  /*signals: true,*/
 })
 export class ListComponent implements OnInit {
   defaultItem: CrudItem = {
@@ -15,14 +16,13 @@ export class ListComponent implements OnInit {
     imageId: -1,
     name: '',
   };
-  list: Array<CrudItem> = [];
-  selectedItem: CrudItem = this.defaultItem;
-  detailsModalId: string = ITEM_DETAILS_MODAL_ID;
-
-  labels: CrudLabels;
+  list: WritableSignal<Array<CrudItem>> = signal([]);
+  selectedItem: WritableSignal<CrudItem> = signal(this.defaultItem);
+  detailsModalId: WritableSignal<string> = signal(ITEM_DETAILS_MODAL_ID);
+  labels: WritableSignal<CrudLabels> = signal(CRUD_LABELS_DEFAULT);
 
   constructor(private crudService: CrudService) {
-    this.labels = this.crudService.config.translations;
+    this.labels.update(() => this.crudService.config.translations);
   }
 
   ngOnInit(): void {
@@ -30,13 +30,13 @@ export class ListComponent implements OnInit {
   }
 
   public select(recipe: CrudItem) {
-    this.selectedItem = recipe;
+    this.selectedItem.update(() => recipe);
   }
 
   getItems(searchValue?: string) {
     this.crudService.getList(searchValue).subscribe({
       next: (itemsList: Array<CrudItem>) => {
-        this.list = itemsList;
+        this.list.update(() => itemsList);
       },
       error: (error: any) => {
         console.error(error);
@@ -48,7 +48,7 @@ export class ListComponent implements OnInit {
     this.crudService.deleteOne(recipeId).subscribe({
       next: () => {
         this.getItems();
-        this.selectedItem = this.defaultItem;
+        this.selectedItem.update(() => this.defaultItem);
       },
       error: (error) => {
         console.error(error);

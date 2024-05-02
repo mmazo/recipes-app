@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
-    <span class="navbar-brand mb-0 h1">{{labels.listHeader}}</span>
+    <span class="navbar-brand mb-0 h1">{{labels().listHeader}}</span>
     <ul class="nav navbar-nav navbar-right">
       <li class="mx-2">
         <app-search (onSearch)="getItems($event)"></app-search>
@@ -10,17 +10,17 @@
           type="button"
           class="btn btn-primary"
           data-bs-toggle="modal"
-          [attr.data-bs-target]="'#' + detailsModalId"
+          [attr.data-bs-target]="'#' + detailsModalId()"
           (click)="select(defaultItem)"
           >
-          {{labels.addActionLabel}}
+          {{labels().addActionLabel}}
         </button>
       </li>
     </ul>
   </div>
 </nav>
 <div class="list-cards">
-  @for (item of list; track item) {
+  @for (item of list(); track item) {
     <div class="card" style="width: 18rem">
       @if (item.imageId && item.imageId !== -1) {
         <app-image-display
@@ -37,7 +37,7 @@
           type="button"
           class="btn btn-primary"
           data-bs-toggle="modal"
-          [attr.data-bs-target]="'#' + detailsModalId"
+          [attr.data-bs-target]="'#' + detailsModalId()"
           (click)="select(item)"
           >
           Edit
@@ -47,7 +47,7 @@
           class="btn btn-danger"
           (click)="deleteItem(item.id)"
           >
-          {{labels.deleteActionLabel}}
+          {{labels().deleteActionLabel}}
         </button>
       </div>
     </div>
@@ -55,6 +55,6 @@
 </div>
 
 <app-details
-  [item]="selectedItem"
+  [item]="selectedItem()"
   (onSave)="getItems()"
 ></app-details>

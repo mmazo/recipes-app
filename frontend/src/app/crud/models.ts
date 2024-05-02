@@ -10,7 +10,7 @@ export type CrudLabels = {
   detailsHeader: string;
   addActionLabel: string;
   deleteActionLabel: string;
-}
+};
 
 export type CrudServiceConfig = {
   apiBaseUrl: string;
@@ -19,4 +19,11 @@ export type CrudServiceConfig = {
   withImage: boolean;
   withTags: boolean;
   translations: CrudLabels;
-}
+};
+
+export const CRUD_LABELS_DEFAULT: CrudLabels = {
+  listHeader: 'List',
+  detailsHeader: 'Details',
+  addActionLabel: 'Add',
+  deleteActionLabel: 'Delete',
+};
